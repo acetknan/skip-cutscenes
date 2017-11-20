@@ -1,6 +1,3 @@
 module.exports = function SkipCutscenes(dispatch) {
-  dispatch.hook('sPlayMovie', (event) => {
-    dispatch.toServer('cEndMovie', Object.assign({ unk: true }, event));
-    return false;
-  });
-};
+	dispatch.hook('S_PLAY_MOVIE', 1, event => dispatch.toServer('C_END_MOVIE', 1, Object.assign({ unk: true }, event)) && false)
+}
